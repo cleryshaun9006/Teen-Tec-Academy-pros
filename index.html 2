@@ -1,0 +1,231 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teen Tec Academy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0;
+      background: #f0f2f5;
+      color: #333;
+    }
+    header {
+      background: #004aad;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h1 {
+      color: #004aad;
+      border-bottom: 3px solid #004aad;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+    form label {
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    button {
+      background: #004aad;
+      color: white;
+border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #003080;
+    }
+    #animations div {
+      flex: 1 1 200px;
+      text-align: center;
+      margin: 15px;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Teen Tec Academy</h1>
+  <p>Learn Cyber Security, AI & System Software from the Beginning</p>
+</header>
+
+<main>
+
+  <section id="about">
+    <h1>About Us</h1>
+    <p>Welcome to Teen Tec Academy, your go-to place to master cyber security, artificial intelligence, and system software through simple, step-by-step lessons and practical tutorials.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact Me</h1>
+    <p>Reach out anytime!</p>
+    <ul>
+      <li>Phone: 09076226396</li>
+      <li>Email: oparajohnboscoakachukwu@gmail.com</li>
+    </ul>
+  </section>
+
+  <section id="user-auth">
+    <h1>User Access</h1>
+    <div id="register-form">
+      <h2>Register</h2>
+      <form onsubmit="return registerUser(event)">
+        <label>Name:<br /><input type="text" id="reg-name" required></label><br /><br /><label>Email:<br /><input type="email" id="reg-email" required></label><br /><br />
+        <label>Password:<br /><input type="password" id="reg-password" required></label><br /><br />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <div id="login-form" style="margin-top:30px;">
+      <h2>Login</h2>
+      <form onsubmit="return loginUser(event)">
+        <label>Email:<br /><input type="email" id="login-email" required></label><br /><br />
+        <label>Password:<br /><input type="password" id="login-password" required></label><br /><br />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div id="welcome-msg" style="display:none; margin-top: 20px; font-weight: bold; color: green;"></div>
+  </section>
+
+  <section id="animations">
+    <h1>Topic Illustrations</h1>
+    <div style="display:flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+      <div>
+        <div id="cyberAnimation" style="width:150px; height:150px; margin: auto;"></div>
+        <p>Cyber Security</p>
+      </div>
+      <div>
+        <div id="aiAnimation" style="width:150px; height:150px; margin: auto;"></div>
+        <p>Artificial Intelligence</p>
+      </div>
+      <div>
+<div id="systemAnimation" style="width:150px; height:150px; margin: auto;"></div>
+        <p>System Software</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h1>Quick Quiz</h1>
+    <form id="quizForm" onsubmit="return checkQuiz()">
+      <p>1. What does AI stand for?</p>
+      <label><input type="radio" name="q1" value="Artificial Intelligence" required> Artificial Intelligence</label><br />
+      <label><input type="radio" name="q1" value="Automatic Input"> Automatic Input</label><br />
+      <label><input type="radio" name="q1" value="Advanced Integration"> Advanced Integration</label><br /><br />
+
+      <p>2. What is the primary purpose of cyber security?</p>
+      <label><input type="radio" name="q2" value="To protect computer systems and data" required> To protect computer systems and data</label><br />
+      <label><input type="radio" name="q2" value="To speed up computers"> To speed up computers</label><br />
+      <label><input type="radio" name="q2" value="To design websites"> To design websites</label><br /><br />
+
+      <button type="submit">Submit Answers</button>
+    </form>
+    <div id="quizResult" style="margin-top:15px; font-weight:bold;"></div>
+  </section>
+
+</main>
+
+<script>
+  let users = [];
+
+  function registerUser(event) {event.preventDefault();
+    const name = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const password = document.getElementById('reg-password').value;
+
+    if (users.find(u => u.email === email)) {
+      alert('Email already registered!');
+      return false;
+    }
+
+    users.push({ name, email, password });
+    alert(`Thank you for registering, name¡);
+    event.target.reset();
+    return false;
+  
+
+  function loginUser(event) 
+    event.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+
+    const user = users.find(u => u.email === email        u.password === password);
+    if (user) 
+      document.getElementById('welcome-msg').style.display = 'block';
+      document.getElementById('welcome-msg').textContent = `Welcome back,{user.name}!`;
+    } else {
+      alert('Invalid email or password!');
+    }
+    event.target.reset();
+    return false;
+  }
+
+  lottie.loadAnimation({
+    container: document.getElementById('cyberAnimation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets8.lottiefiles.com/packages/lf20_jcikwtux.json'
+  });
+
+  lottie.loadAnimation({container: document.getElementById('aiAnimation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets5.lottiefiles.com/packages/lf20_tll0j4bb.json'
+  });
+
+  lottie.loadAnimation({
+    container: document.getElementById('systemAnimation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'https://assets3.lottiefiles.com/packages/lf20_7yrizp2q.json'
+  });
+
+  function checkQuiz() {
+    const form = document.getElementById('quizForm');
+    const q1 = form.q1.value;
+    const q2 = form.q2.value;
+    let score = 0;
+
+    if (q1 === 'Artificial Intelligence') score++;
+    if (q2 === 'To protect computer systems and data') score++;
+
+    const result = document.getElementById('quizResult');
+    result.textContent = `You scored score out of 2.{score === 2 ? 'Excellent!' : 'Keep learning and trying your best!'}`;
+    return false;
+  }
+</script>
+
+</body>
+</html>
+```
