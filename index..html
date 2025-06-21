@@ -1,0 +1,125 @@
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teen Tec Academy</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; background: #121212; color: #e0e0e0;
+  }
+  header {
+    background: #0d47a1;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  section {
+    padding: 3rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  h2 {
+    color: #2196f3;
+    margin-bottom: 1rem;
+  }
+  .topic {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+  }
+  .topic img {
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #2196f3;
+  }
+  .topic div {
+    flex: 1;
+  }
+  footer {
+    background: #0d47a1;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    font-size: 1rem;
+  }
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+ </style>
+</head>
+<body>
+
+<header>Teen Tec Academy</header>
+
+<section id="cybersecurity">
+  <h2>Cyber Security</h2>
+  <div class="topic">
+    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920258.png" alt="Cybersecurity Icon" />
+    <div>
+      <p>Learn the fundamentals of protecting computer systems and networks from digital attacks. Our step-by-step lessons guide you from basics to advanced practices.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ai">
+  <h2>Artificial Intelligence</h2>
+  <div class="topic">
+    <img src="https://cdn-icons-png.flaticon.com/512/3284/3284452.png" alt="AI Icon" />
+    <div>
+      <p>Explore the world of AI, machine learning, and data science. Understand algorithms and build intelligent systems through practical tutorials and projects.</p>
+    </div>
+  </div>
+</section>
+
+<section id="system-software">
+  <h2>System Software</h2>
+  <div class="topic">
+    <img src="https://cdn-icons-png.flaticon.com/512/1066/1066754.png" alt="System Software Icon" />
+    <div>
+      <p>Master operating systems, system utilities, and software management. Gain hands-on experience with installations, configurations, and troubleshooting.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+<p>For inquiries or support, reach out via:</p>
+  <p>Phone: <a href="tel:+2349076226396">09076226396</a></p>
+  <p>Email: <a href="mailto:oparajohnboscoakachukwu@gmail.com">oparajohnboscoakachukwu@gmail.com</a></p>
+</section>
+
+<footer>© 2025 Teen Tec Academy. All rights reserved.</footer>
+
+<script>
+  // Animate sections on scroll
+  const sections = document.querySelectorAll('section');
+  function revealSections() {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if (sectionTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealSections);
+  window.addEventListener('load', revealSections);
+</script>
+
+</body>
+</html>
